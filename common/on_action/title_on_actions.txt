@@ -458,7 +458,10 @@ on_title_gain_inheritance = {
 			limit = {
 				scope:previous_holder.culture = { has_cultural_tradition = tradition_fratricide }
 			}
-			set_nemesis_between_brothers_on_succession_effect = yes
+			trigger_event = {
+				id = ft_succession.0001
+				delayed = yes
+			}
 		}
 		# ----------------
 	}

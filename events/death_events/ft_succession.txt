@@ -1,0 +1,8 @@
+﻿namespace = ft_succession
+ft_succession.0001 = {
+	hidden = yes
+
+	immediate = {
+		set_nemesis_between_brothers_on_succession_effect = yes
+	}
+}
