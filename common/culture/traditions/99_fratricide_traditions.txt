@@ -1,0 +1,82 @@
+﻿tradition_fratricide = {
+	category = regional
+
+	layers = {
+		0 = intrigue
+		1 = mena
+		# 4 = crown.dds
+		4 = king.dds
+	}
+
+	is_shown = {
+		OR = {
+			has_cultural_pillar = heritage_turkic
+			has_cultural_pillar = heritage_arabic
+			has_cultural_pillar = heritage_mongolic
+
+			scope:character = { faith.religion = religion:islam_religion }
+		}
+	}
+
+	can_pick = {
+		scope:character = {
+			highest_held_title_tier >= tier_kingdom
+		}
+		# ビザンツの遺産もっててはいけない
+		custom_tooltip = {
+			text = cannot_have_tradition_byzantine_succession
+			NOT = { culture_tradition:tradition_byzantine_succession = { is_in_list = traits } }
+		}
+		# 慈悲深い目つぶしもっててはいけない
+		custom_tooltip = {
+			text = cannot_have_tradition_merciful_blindings
+			NOT = { culture_tradition:tradition_merciful_blindings = { is_in_list = traits } }
+		}
+	}
+
+	parameters = {
+		# 目潰しできる
+		can_blind_prisoners = yes
+		# 誘拐できる
+		fratricide_can_abduct = yes
+		# # 去勢できる? できなくても良い気がする
+		# can_castrate_prisoners = yes
+		# 継承時、兄弟と宿敵になる
+		set_nemesis_between_brothers_on_succession = yes
+
+		# 親族殺しの悪い意見が減る
+		# ウラマーからよしとされていたので後々これは実装する必要があるかも
+
+		# 兄弟の継承順位が高くなる
+		# これできないかも, いらないかも
+
+		# 請求者反乱が増える
+		# fratricide_faction_preffered_claimants = yes
+
+		# 牢獄から逃げにくくなる
+
+		# 牢獄にいる人の健康状態がましになる
+
+	}
+	character_modifier = {
+		# eligible_child_opinion = 20
+		# short_reign_duration_mult = 0.5
+		# hostile_scheme_power_mult = 1.25
+		# ai_amenity_target_baseline = 0.75
+		# ai_amenity_spending = 1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = { value = 100 }
+}

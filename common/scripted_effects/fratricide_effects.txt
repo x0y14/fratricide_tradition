@@ -1,0 +1,67 @@
+﻿set_nemesis_between_brothers_on_succession_effect = {
+	if = {
+		# 継承したのが主要称号なら
+		limit = { scope:title = scope:previous_holder.primary_title }
+		# カリフの危機感のやつつけてあげる
+		add_character_modifier = {
+			modifier = fp3_struggle_caliph_super_suspicious_modifier
+		}
+
+		# 自分と請求権をもつ兄弟をリストに
+		every_close_or_extended_family_member = { # 拡大家族
+			limit = {
+				has_culture = root.culture # 同じ文化で
+				is_sibling_of = root       # 兄弟で
+				has_claim_on = scope:title # 同じ請求権をもつ
+			}
+			# 男性限定継承
+			if = {
+				limit = {
+					root = { has_realm_law = male_only_law }
+					is_male = yes
+				}
+				add_to_list = siblings_can_succession
+			}
+			# 女性限定継承
+			else_if = {
+				limit = {
+					root = { has_realm_law = female_only_law }
+					is_female = yes
+				}
+				add_to_list = siblings_can_succession
+			}
+			# 優先あるいは平等
+			else_if = {
+				limit = {
+					OR = {
+						root = { has_realm_law = male_preference_law }
+						root = { has_realm_law = female_preference_law }
+						root = { has_realm_law = equal_law }
+					}
+				}
+				add_to_list = siblings_can_succession
+			}
+			# add_to_temporary_list = siblings_can_succession
+		}
+		root = { add_to_temporary_list = siblings_can_succession }
+
+		every_in_list = {
+			list = siblings_can_succession
+			save_temporary_scope_as = claimest
+			every_in_list = {
+				list = siblings_can_succession
+				limit = {
+					NOT = { this = scope:claimest }
+					NOT = { has_relation_nemesis = scope:claimest }
+				}
+				save_temporary_scope_as = bros
+				scope:bros = {
+					set_relation_nemesis = {
+						target = scope:claimest
+						reason = rival_historical
+					}
+				}
+			}
+		}
+	}
+}
