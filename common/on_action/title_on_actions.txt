@@ -454,7 +454,12 @@ on_title_gain_inheritance = {
 			add_dread = 50
 		}
 		# -- fratricide --
-		set_nemesis_between_brothers_on_succession_effect = yes
+		if = {
+			limit = {
+				scope:previous_holder.culture = { has_cultural_tradition = tradition_fratricide }
+			}
+			set_nemesis_between_brothers_on_succession_effect = yes
+		}
 		# ----------------
 	}
 }
