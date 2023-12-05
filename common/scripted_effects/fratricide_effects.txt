@@ -3,9 +3,9 @@
 		# 継承したのが主要称号なら
 		limit = { scope:title = scope:previous_holder.primary_title }
 		# カリフの危機感のやつつけてあげる
-		add_character_modifier = {
-			modifier = fp3_struggle_caliph_super_suspicious_modifier
-		}
+		# add_character_modifier = {
+		# 	modifier = fp3_struggle_caliph_super_suspicious_modifier
+		# }
 
 		# 自分と請求権をもつ兄弟をリストに
 		every_close_or_extended_family_member = { # 拡大家族
