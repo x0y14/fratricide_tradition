@@ -35,6 +35,12 @@
 	}
 
 	parameters = {
+		# 無情が増える
+		callous_trait_more_common = yes
+		# 嗜虐的が増える
+		sadistic_trait_more_common = yes
+		# 強欲が増える
+		greedy_trait_more_common = yes
 		# 目潰しできる
 		can_blind_prisoners = yes
 		# 誘拐できる
@@ -56,7 +62,6 @@
 		# 牢獄から逃げにくくなる
 
 		# 牢獄にいる人の健康状態がましになる
-
 	}
 	character_modifier = {
 		# eligible_child_opinion = 20
