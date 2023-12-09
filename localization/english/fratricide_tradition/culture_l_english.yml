@@ -13,7 +13,7 @@
 
   culture_head_have_callous_sadistic_traits_desc:1 "You have the [GetTrait('callous').GetName( GetNullCharacter )] or [GetTrait('sadistic').GetName( GetNullCharacter )] [traits|E]"
   culture_head_have_murderer_traits_desc:1 "You have the [GetTrait('murderer').GetName( GetNullCharacter )] [traits|E]"
-  culture_head_have_kinslayer_traits_desc:1 "You have the [GetTrait('kinslayer_1').GetName( GetNullCharacter )], [GetTrait('kinslayer_2').GetName( GetNullCharacter )] or [GetTrait('kinslayer_3').GetName( GetNullCharacter )] [traits|E]"
+  culture_head_have_kinslayer_traits_desc:1 "You have the [GetTrait('kinslayer_1').GetName( GetNullCharacter )], [GetTrait('kinslayer_2').GetName( GetNullCharacter )], or [GetTrait('kinslayer_3').GetName( GetNullCharacter )] [traits|E]"
   culture_head_low_level_of_brutality_desc:1 "You have killed fewer than #V 5#!"
 
   FACTION_REASON_fratricide_ITS_MINE: "I am the rightful [heir|E]: $FACTOR|0%+=$"
