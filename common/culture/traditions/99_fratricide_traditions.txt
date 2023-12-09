@@ -19,9 +19,9 @@
 	}
 
 	can_pick = {
-		scope:character = {
-			highest_held_title_tier >= tier_kingdom
-		}
+		# scope:character = {
+		# 	highest_held_title_tier >= tier_kingdom
+		# }
 		# ビザンツの遺産もっててはいけない
 		custom_tooltip = {
 			text = cannot_have_tradition_byzantine_succession
@@ -43,6 +43,7 @@
 		greedy_trait_more_common = yes
 		# 不忠が増える
 		disloyal_trait_more_common = yes
+
 		# 目潰しできる
 		can_blind_prisoners = yes
 		# 誘拐できる
@@ -75,7 +76,13 @@
 		# ai_amenity_target_baseline = 0.75
 		# ai_amenity_spending = 1
 		dynasty_house_opinion = -20
+		# mercenary_hire_cost_mult = -0.25
 	}
+
+	# culture_modifier = {
+	# 	mercenary_count_mult = -0.25
+	# }
+
 
 	cost = {
 		prestige = {
@@ -174,7 +181,7 @@
 					scope:character = { has_trait = lunatic }
 				}
 			}
-			add = 50
+			add = 30
 		}
 		if = {
 			limit = { # 残酷な人たち
@@ -185,7 +192,7 @@
 					scope:character = { has_trait = murderer }
 				}
 			}
-			add = 100
+			add = 40
 		}
 		if = {
 			limit = { # 親族を殺したことがある人、憎んでる人
@@ -197,7 +204,7 @@
 					scope:character = { has_trait = disinherited }
 				}
 			}
-			add = 1000
+			add = 50
 		}
 	}
 }
