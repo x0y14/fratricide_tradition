@@ -704,7 +704,7 @@ common_join_faction_blockers = {
 		scope:target_opinion >= 80
 	}
 
-	
+
 }
 
 common_faction_modifiers = {
@@ -853,7 +853,7 @@ common_faction_modifiers = {
 		$FACTION_TARGET$ = { has_title = title:d_sunni }
 	}
 
-	# # -- fratricide --
+	# -- fratricide --
 	modifier = {
 		desc = "FACTION_REASON_fratricide_MORE_CLAIMANTS"
 		factor = 1.2
@@ -861,7 +861,7 @@ common_faction_modifiers = {
 			has_cultural_parameter = fratricide_more_claimants
 		}
 	}
-	# # ----------------
+	# ----------------
 }
 
 
@@ -2011,7 +2011,7 @@ claimant_faction_modifiers = {
 	# -- fratricide --
 	modifier = { # 自身が請求者で、相手が同じ家
 		desc = "FACTION_REASON_fratricide_ITS_MINE"
-		factor = 2.0
+		factor = 1.0
 		culture = {
 			has_cultural_parameter = fratricide_more_claimants
 		}
@@ -2021,7 +2021,7 @@ claimant_faction_modifiers = {
 	modifier = { # 自身が請求者で、相手が同じ家でない
 		desc = "FACTION_REASON_fratricide_ITS_MINE"
 		# factor = 1.2
-		factor = 1.2
+		factor = 2.0
 		culture = {
 			has_cultural_parameter = fratricide_more_claimants
 		}
@@ -2030,12 +2030,21 @@ claimant_faction_modifiers = {
 	}
 	modifier = { # 自分以外が請求者なら参加しない
 		desc = "FACTION_REASON_fratricide_ITS_MINE"
-		factor = 0
+		multiply = 0
 		culture = {
 			has_cultural_parameter = fratricide_more_claimants
 		}
 		NOT = { $FACTION_CLAIMANT$ = root } # 請求者が自分でない
 		has_claim_on = $FACTION_TITLE$
+	}
+	modifier = { # 同じ文化の人に向けて、別の文化の人が請求してる
+		desc = "FACTION_REASON_CULTURAL_REASONS"
+		add = -1000
+		culture = {
+			has_cultural_parameter = fratricide_more_claimants
+		}
+		NOT = { $FACTION_CLAIMANT$.culture = root.culture } # 請求者が自分でない
+		$FACTION_TARGET$.culture = root.culture
 	}
 	# ----------------
 }
