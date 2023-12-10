@@ -2030,7 +2030,7 @@ claimant_faction_modifiers = {
 	}
 	modifier = { # 自分以外が請求者なら参加しない
 		desc = "FACTION_REASON_fratricide_ITS_MINE"
-		multiply = 0
+		add = -1000
 		culture = {
 			has_cultural_parameter = fratricide_more_claimants
 		}

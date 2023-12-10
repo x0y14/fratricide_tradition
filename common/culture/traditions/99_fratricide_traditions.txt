@@ -46,6 +46,8 @@
 
 		# 目潰しできる
 		can_blind_prisoners = yes
+		# 去勢できる
+		can_castrate_prisoners = yes
 		# 誘拐できる
 		fratricide_can_abduct = yes
 		# # 去勢できる? できなくても良い気がする
@@ -83,6 +85,9 @@
 		same_culture_mercenary_hire_cost_mult = -0.15
 		dynasty_house_opinion = -20
 		# mercenary_hire_cost_mult = -0.25
+		# years_of_fertility = 10000000
+		fertility = 0.25
+		# pregnancy_chance = 100000
 	}
 
 	# culture_modifier = {
@@ -99,22 +104,22 @@
 			}
 			if = {
 				limit = {
-					NOR = {
+					OR = {
 						scope:character = { has_trait = callous }
 						scope:character = { has_trait = sadistic }
 					}
 				}
 				add = {
-					value = 500
+					value = -500
 					desc = culture_head_have_callous_sadistic_traits_desc
 				}
 			}
 			if = {
 				limit = {
-					NOT = { scope:character = { has_trait = murderer } }
+					scope:character = { has_trait = murderer }
 				}
 				add = {
-					value = 500
+					value = -500
 					desc = culture_head_have_murderer_traits_desc
 				}
 			}
@@ -136,28 +141,16 @@
 			# 	limit = {
 			# 		scope:character = {
 			# 			any_memory = {
-			# 				has_memory_type = killed_everyone
-			# 				any_memory_participant = {
-			# 					exists = killer
-			# 					killer = scope:character
-			# 					count >= 5
-			# 				}
+			# 				NOT = { has_memory_type = killed_everyone }
 			# 			}
 			# 		}
-			# 		# any_memory = {
-			# 		# 	has_memory_type = killed_everyone
-			# 		# 	any_memory_participant = {
-			# 		# 		exists = this.killer
-			# 		# 		killer = root
-			# 		# 		count >= 5
-			# 		# 	}
-			# 		# }
 			# 	}
 			# 	add = {
 			# 		value = 2000
-			# 		desc = culture_head_low_level_of_brutality_desc
+			# 		desc = culture_head_never_killed_desc
 			# 	}
 			# }
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}

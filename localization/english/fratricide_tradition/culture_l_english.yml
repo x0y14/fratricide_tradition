@@ -12,10 +12,11 @@
   culture_parameter_fratricide_more_claimants: "[claimant_factions|E] are more common"
   culture_parameter_fratricide_more_rival_with_siblings: "[rival|E] with siblings are more common."
 
-  culture_head_have_callous_sadistic_traits_desc:1 "You do not have the [GetTrait('callous').GetName( GetNullCharacter )] or [GetTrait('sadistic').GetName( GetNullCharacter )] [traits|E]"
-  culture_head_have_murderer_traits_desc:1 "You do not have the [GetTrait('murderer').GetName( GetNullCharacter )] [traits|E]"
+  culture_head_have_callous_sadistic_traits_desc:1 "You have the [GetTrait('callous').GetName( GetNullCharacter )] or [GetTrait('sadistic').GetName( GetNullCharacter )] [traits|E]"
+  culture_head_have_murderer_traits_desc:1 "You have the [GetTrait('murderer').GetName( GetNullCharacter )] [traits|E]"
   culture_head_have_kinslayer_traits_desc:1 "You have the [GetTrait('kinslayer_1').GetName( GetNullCharacter )], [GetTrait('kinslayer_2').GetName( GetNullCharacter )], or [GetTrait('kinslayer_3').GetName( GetNullCharacter )] [traits|E]"
   culture_head_low_level_of_brutality_desc:1 "You have killed fewer than #V 5#!"
+  culture_head_never_killed_desc:1 "You have never killed anyone"
 
   FACTION_REASON_fratricide_ITS_MINE: "I am the rightful [heir|E]: $FACTOR|0%+=$"
   FACTION_REASON_fratricide_MORE_CLAIMANTS: "[Character.GetCulture.GetName]: $FACTOR|0%+=$"
