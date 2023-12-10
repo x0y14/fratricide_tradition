@@ -66,3 +66,50 @@
 		}
 	}
 }
+
+get_list_of_child_as_potential_successor = {
+	if = {
+		limit = {
+			$CHARACTER$ = { is_landed = yes }
+			$CHARACTER$ = {
+				any_child = {
+					count > 0
+				}
+			}
+		}
+		$CHARACTER$ = {
+			every_child = {
+				# set_variable = {
+				# 	name = potential_successor
+				# 	value = $CHARACTER$
+				# }
+				if = {
+					limit = {
+						$CHARACTER$ = { has_realm_law = male_only_law }
+						is_male = yes
+					}
+					add_to_list = potential_successor
+				}
+				# 女性限定継承
+				else_if = {
+					limit = {
+						$CHARACTER$ = { has_realm_law = female_only_law }
+						is_female = yes
+					}
+					add_to_list = potential_successor
+				}
+				# 優先あるいは平等
+				else_if = {
+					limit = {
+						OR = {
+							$CHARACTER$ = { has_realm_law = male_preference_law }
+							$CHARACTER$ = { has_realm_law = female_preference_law }
+							$CHARACTER$ = { has_realm_law = equal_law }
+						}
+					}
+					add_to_list = potential_successor
+				}
+			}
+		}
+	}
+}
